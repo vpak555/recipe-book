@@ -9,9 +9,9 @@ import { RecipeListComponent } from "./recipes/recipe-list/recipe-list.component
 import { RecipeItemComponent } from "./recipes/recipe-list/recipe-item/recipe-item.component";
 import { RecipeDetailComponent } from "./recipes/recipe-detail/recipe-detail.component";
 import { ShoppingListComponent } from "./shopping-list/shopping-list.component";
-
-const routes: Routes = [
-]
+import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
+import {AppRoutingModule} from "./app-routing.module";
+import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 
 @NgModule({
   declarations: [
@@ -22,11 +22,13 @@ const routes: Routes = [
     RecipeDetailComponent,
     ShoppingListComponent,
     RecipesComponent,
-    ShoppingEditComponent
+    ShoppingEditComponent,
+    RecipeEditComponent,
+    RecipeStartComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes)
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

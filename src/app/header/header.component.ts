@@ -15,7 +15,4 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onNavLinkClick(linkName: string) {
-    this.navbarLinkClicked.emit(linkName);
-  }
 }
