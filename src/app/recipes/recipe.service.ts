@@ -1,4 +1,4 @@
-import {Injectable, EventEmitter} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Recipe} from "./recipe.model";
 import {Ingredient} from "../shared/ingredient.model";
 import {ShoppingListService} from "../shopping-list/shopping-list.service";
@@ -15,13 +15,12 @@ export class RecipeService {
       'https://www.biggerbolderbaking.com/wp-content/uploads/2019/07/15-Minute-Pizza-WS-Thumbnail.png',
       [new Ingredient('Tomato', 2)])
   ];
-  recipeChosen = new EventEmitter<Recipe>();
 
   constructor(private shoppingListService: ShoppingListService) {
   }
 
   getRecipe(id: number) {
-    return this.recipes[id]
+    return this.recipes[id];
   }
 
   getRecipes() {
