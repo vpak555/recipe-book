@@ -8,15 +8,7 @@ import {Subject} from "rxjs";
   providedIn: 'root'
 })
 export class RecipeService {
-  private recipes: Recipe[] = [
-    new Recipe('Test recipe', 'This is a test recipe',
-      'https://www.biggerbolderbaking.com/wp-content/uploads/2019/07/15-Minute-Pizza-WS-Thumbnail.png',
-      [new Ingredient('Potato', 2), new Ingredient('Tomato', 3)]),
-    new Recipe('Test recipe 2', 'This is a test recipe 2',
-      'https://www.biggerbolderbaking.com/wp-content/uploads/2019/07/15-Minute-Pizza-WS-Thumbnail.png',
-      [new Ingredient('Tomato', 2), new Ingredient('Cherry', 2)])
-  ];
-
+  private recipes: Recipe[] = [];
   recipesChanged = new Subject<Recipe[]>();
 
   constructor(private shoppingListService: ShoppingListService) {
@@ -24,6 +16,11 @@ export class RecipeService {
 
   getRecipe(id: number) {
     return this.recipes[id];
+  }
+
+  setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes;
+    this.recipesChanged.next(this.recipes.slice());
   }
 
   getRecipes() {
